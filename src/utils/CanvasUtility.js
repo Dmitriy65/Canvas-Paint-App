@@ -37,8 +37,7 @@ class CanvasUtility {
 
   drawLine = (x1, y1, x2, y2) => {
 
-    if ((x1 > this.width || y1 > this.height) ||
-      (x2 > this.width || y2 > this.height)) {
+    if (!this.isPointsForDrawLine(x1, y1, x2, y2)) {
       throw new Error('Draw line out of paint zone!');
     }
 
@@ -57,21 +56,35 @@ class CanvasUtility {
         const row = this.array[i - 1];
         row[x1 - 1] = 'x';
       }
-
+    } else {
+      throw new Error('Different coordinates on 2 points!');
     }
 
   };
 
   drawRectangle = (x1, y1, x2, y2) => {
-      this.drawLine(x1, y1, x2, y1);
-      this.drawLine(x2, y1, x2, y2);
-      this.drawLine(x2, y2, x1, y2);
-      this.drawLine(x1, y2, x1, y1);
+    this.drawLine(x1, y1, x2, y1);
+    this.drawLine(x2, y1, x2, y2);
+    this.drawLine(x2, y2, x1, y2);
+    this.drawLine(x1, y2, x1, y1);
   };
 
+  isPointsForFillArea(x, y) {
+    return (x > this.width || y > this.height || y <= 0 || x <= 0)
+      ? false : true;
+  }
+
+  isPointsForDrawLine(x1, y1, x2, y2) {
+    return (x1 > this.width || y1 > this.height ||
+      x2 > this.width || y2 > this.height || ![x1, y1, x2, y2].every(num => num > 0)) ? false : true;
+  }
+
   fillArea = (x, y, bucketColor) => {
-    if (x > this.width || y > this.height)
+    if (!this.isPointsForFillArea(x, y))
       throw new Error('Bucket fill out of paint zone!');
+
+    if (!bucketColor)
+      throw new Error('There is no any color for canvas!');
 
     const canvas = this.array;
 
@@ -98,9 +111,9 @@ class CanvasUtility {
 
   static handleCanvasCreation = (parsedParams) => {
     try {
-      
+
       Object.keys(parsedParams).forEach(commandName => {
-  
+
         if (parsedParams[commandName].length > 1) {
           const length = parsedParams[commandName].length;
           let i = 0;
@@ -115,7 +128,7 @@ class CanvasUtility {
       const finalCanvas = canvas.canvasParts.join('');
       return [FileUtility.createOutputFile(finalCanvas), canvas.stringView, null];
     } catch (err) {
-      return [null, null, new Error('Incorrect input commands.Please, try another commands!').message];
+      return [null, null, err.message];
     }
   }
 
@@ -130,7 +143,7 @@ const canvasActions = {
 
 let canvas;
 
-export const setAction = (action, state) => {
+const setAction = (action, state) => {
   const { x1, y1, x2, y2, width, height, color } = state;
 
   switch (action) {
@@ -138,6 +151,7 @@ export const setAction = (action, state) => {
       canvas = new CanvasUtility(width, height);
       break;
     case canvasActions.drawLine:
+      debugger;
       canvas.drawLine(x1, y1, x2, y2);
       break;
     case canvasActions.drawRectangle:
@@ -150,8 +164,7 @@ export const setAction = (action, state) => {
       canvas.fillArea(x1, y1, color);
       break;
     default:
-      console.log('Can`t find any canvas actions...');
-      break;
+      return new Error('Can`t find any canvas actions...');
   }
 
   canvas.convertToString();

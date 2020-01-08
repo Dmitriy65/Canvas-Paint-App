@@ -26,7 +26,7 @@ describe('async actions tests', () => {
 
     expect(store.getActions()[0]).toEqual({
       type: HANDLE_FILE_ERROR,
-      payload: "Incorrect input commands.Please, try another commands!"
+      payload: "Not enought arguments to create canvas!"
     });
 
   });
@@ -54,7 +54,7 @@ describe('async actions tests', () => {
 
     expect(store.getActions()[0]).toEqual({
       type: HANDLE_FILE_ERROR,
-      payload: "Command to create canvas doesn`t exist!"
+      payload: "Command to create canvas not exist!"
     });
 
   });
