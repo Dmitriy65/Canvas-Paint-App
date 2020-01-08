@@ -49,7 +49,7 @@
       "\\.(css|scss)$": "identity-obj-proxy"
     },
     "setupFilesAfterEnv": [
-      "<rootDir>/setupTests.js"
+      "<rootDir>/src/setupTests.js"
     ]
   },
   "eslintConfig": {

@@ -6,8 +6,8 @@
 
 main {
   margin: 0 auto;
-  max-width: 70rem;
-  min-height: 50rem;
+  width: 70%;
+  height: 80%;
   border: 4px solid wheat;
   background-color: whitesmoke;
 }
