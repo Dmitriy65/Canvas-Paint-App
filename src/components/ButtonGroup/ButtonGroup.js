@@ -8,8 +8,8 @@ function ButtonGroup({ handleInputFile, link }) {
       <label className="custom-file-upload" htmlFor="input-file">
         Click to upload your txt file
         <input type="file" id="input-file" onChange={(evt) => {
-          const inputFile = evt.target.files[0];
-          if (inputFile) handleInputFile(inputFile);
+          handleInputFile(evt.target.files[0]);
+          evt.target.value = null;
         }}></input>
       </label>
       <br></br>
