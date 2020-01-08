@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action creators creates errorFileProcess action when file reading was not success 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "payload": Array [
+        "blob:http://localhost:3000/ddafffc8-1d42-4cee-a186-1077686179f4",
+        "----------------------
+|oooooooooooooooxxxxx|
+|xxxxxxooooooooox   x|
+|     xoooooooooxxxxx|
+|     xoooooooooooooo|
+----------------------",
+      ],
+      "type": "HANDLE_FILE_SUCCESS",
+    },
+    "type": "HANDLE_FILE_SUCCESS",
+  },
+  Object {
+    "payload": Object {
+      "payload": "Cant read input file, type doesn\`t match \\"text/plain\\"",
+      "type": "HANDLE_FILE_ERROR",
+    },
+    "type": "HANDLE_FILE_ERROR",
+  },
+]
+`;
+
+exports[`action creators creates successFileProcess action when file reading was success 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "payload": Array [
+        "blob:http://localhost:3000/ddafffc8-1d42-4cee-a186-1077686179f4",
+        "----------------------
+|oooooooooooooooxxxxx|
+|xxxxxxooooooooox   x|
+|     xoooooooooxxxxx|
+|     xoooooooooooooo|
+----------------------",
+      ],
+      "type": "HANDLE_FILE_SUCCESS",
+    },
+    "type": "HANDLE_FILE_SUCCESS",
+  },
+]
+`;

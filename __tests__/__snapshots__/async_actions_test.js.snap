@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`async actions creates async handleInputFile actions 1`] = `Array []`;

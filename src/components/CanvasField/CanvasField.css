@@ -1,0 +1,9 @@
+.canvas-field {
+    width: 35rem;
+    height: 35rem;
+    margin: 10px auto;
+    border: 10px solid floralwhite;
+    background-color: #d5d4d5ec;
+    overflow-x: scroll; 
+    overflow-y: scroll; 
+}

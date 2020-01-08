@@ -1,0 +1,41 @@
+.btn-block {
+  text-align: center;
+  margin-top: 5px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 16px 24px;
+  cursor: pointer;
+  background-color: cadetblue;
+  color: bisque;
+  border: 2px solid darkkhaki;
+}
+
+a.active-link,
+a.disabled-link {
+  display: inline-block;
+  margin-top: 5px;
+  color: bisque;
+  padding: 16px 14px;
+  cursor: pointer;
+  background-color: cadetblue;
+  border: 2px solid darkkhaki;
+  text-decoration: none;
+}
+
+.custom-file-upload:hover,
+a:hover {
+  background-color: darksalmon;
+}
+
+a.disabled-link {
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  background-color: gray;
+}
