@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d52f8d4a5c5a209da8ccf86b95601f6b",
+    "revision": "2367100cca5750bbafda9bb746b632cd",
     "url": "/Canvas-Paint-App/index.html"
   },
   {
-    "revision": "a658070c1a54063916ed",
+    "revision": "987cb0b9d01f2cb5b2ee",
     "url": "/Canvas-Paint-App/static/css/main.bd5fb0a5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Canvas-Paint-App/static/js/2.c7ae556f.chunk.js.LICENSE"
   },
   {
-    "revision": "a658070c1a54063916ed",
-    "url": "/Canvas-Paint-App/static/js/main.522d5fb5.chunk.js"
+    "revision": "987cb0b9d01f2cb5b2ee",
+    "url": "/Canvas-Paint-App/static/js/main.b6032055.chunk.js"
   },
   {
     "revision": "499f2852afcbabc04e43",
