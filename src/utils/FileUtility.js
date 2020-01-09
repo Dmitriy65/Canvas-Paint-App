@@ -42,9 +42,7 @@ const parseInputParams = (textCommands) => {
 
   const divideCommandsByLine = textCommands
     .split('\n')
-    .filter(line => {
-      return line.length >= 6
-    });
+    .filter(line => line.length >= 5);
 
   if (divideCommandsByLine[0][0] !== 'C')
     return { error: 'Command to create canvas not exist!' };
@@ -59,7 +57,7 @@ const parseInputParams = (textCommands) => {
     const args = command.slice(2)
       .split(' ')
       .map(value => Number.isNaN(Number(value)) ? value : Number(value));
-    
+
     let width, height, x1, y1, x2, y2, color;
 
     if (args.length === 2) [width, height] = args;

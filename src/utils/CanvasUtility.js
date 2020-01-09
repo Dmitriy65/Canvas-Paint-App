@@ -80,6 +80,9 @@ class CanvasUtility {
   }
 
   fillArea = (x, y, bucketColor) => {
+    if ([x, y].some(num => typeof num !== 'number'))
+      throw new Error('Input values not numbers!');
+
     if (!this.isPointsForFillArea(x, y))
       throw new Error('Bucket fill out of paint zone!');
 
@@ -145,13 +148,12 @@ let canvas;
 
 const setAction = (action, state) => {
   const { x1, y1, x2, y2, width, height, color } = state;
-
+  
   switch (action) {
     case canvasActions.createCanvas:
       canvas = new CanvasUtility(width, height);
       break;
     case canvasActions.drawLine:
-      debugger;
       canvas.drawLine(x1, y1, x2, y2);
       break;
     case canvasActions.drawRectangle:
